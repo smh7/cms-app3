@@ -35,4 +35,23 @@ module.exports = {
     }
   },
 
-}
+  /**
+   * @api {get} /cards
+   * @apiGroup Cards
+   *  @apiName GetCards
+   *  @apiSuccess {Object[]} Card List of Product Cards
+   *  @apiExample {curl} Example usage:
+   *  curl -i http://localhost:8080/cards
+   *  @apiDescription Any User Car Return a View of all Product Cards
+   * 
+   */
+
+  async find(ctx){
+    try {
+      ctx.body = await ctx.db.Card.findAll({});
+    } catch (error) {
+      ctx.throw(500, err);
+    }
+  }
+
+};
