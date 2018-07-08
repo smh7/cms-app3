@@ -1,3 +1,4 @@
+const serve = require('koa-static');
 const Koa = require('koa');
 const Router = require('koa-router');
 const bodyParser = require('koa-parser');
@@ -16,6 +17,7 @@ db.sequelize.sync({})
     .catch(err => console.log(err));
     
 app.context.db = db;
+app.use(serve(__dirname + '/public'));
 app.use(bodyParser())// make sure you use bodyParser before the router
 app.use(router.routes());
 
