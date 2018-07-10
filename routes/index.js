@@ -6,8 +6,11 @@ const {
 } = require('../controllers');
 
 // User Routes
-router.post('/signup', User.create);
-router.post('/login', User.login);
+router.post('/signup', User.create)
+      .get('/login', User.login);
+
+router.post('/login', User.login)
+      .get('/cms', Card.find);
 
 // Card Routes
 router.get('/cards', Card.find);

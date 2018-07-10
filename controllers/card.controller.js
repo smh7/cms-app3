@@ -12,12 +12,12 @@ module.exports = {
  * {
  *  "authorization" : "dfjjfdla98826830271"
  * }
- * @apiParam {String} [card_img_top]
- * @apiParam {String} [card_title]
- * @apiParam {String} [card_text]
- * @apiParam {String} [list_group1]
- * @apiParam {String} [list_group2]
- * @apiParam {String} [list_group3]
+ * @apiParam {String} [card_img_top] At present format=  img src='http://localhost:8080/img/maine.jpg'
+ * @apiParam {String} [card_title] This is the card title
+ * @apiParam {String} [card_text] This is the larger section of text withint the card
+ * @apiParam {String} [list_group1] This is the first list group item beneath the card-text
+ * @apiParam {String} [list_group2] This is the 2nd, might not be needed
+ * @apiParam {String} [list_group3] This is the 3rd
  */
 
   async create(ctx){
@@ -42,7 +42,7 @@ module.exports = {
    *  @apiSuccess {Object[]} Card List of Product Cards
    *  @apiExample {curl} Example usage:
    *  curl -i http://localhost:8080/cards
-   *  @apiDescription Any User Car Return a View of all Product Cards
+   *  @apiDescription Any User Can Return a View of all Product Cards
    * 
    */
 

@@ -1,7 +1,7 @@
 define({
-  "name": "Job Portal API documentation",
+  "name": "Content Management System API documentation",
   "version": "1.0.0",
-  "description": "API Job Portal Application",
+  "description": "CMS API Application",
   "template": {
     "forceLanguage": "en"
   },
@@ -10,7 +10,7 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2018-07-07T15:17:14.871Z",
+    "time": "2018-07-10T01:04:21.306Z",
     "url": "http://apidocjs.com",
     "version": "0.17.6"
   }
