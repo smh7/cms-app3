@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    <title>CMS Login Page</title>
+    <title>CMS Add Product Card</title>
   </head>
   <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,10 +19,10 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Sign up <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/signup.html">Sign up <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="/login.html">Login</a>
               </li>
             </ul>
             <span class="navbar-text">
@@ -34,20 +34,40 @@
     <div class="container">
       <div class="row">
         <div class="col-md-7 mb-5">
-          <h2 class="display-4">Login to CMS</h2>
-          <p class="font-weight-bold">Provided you have signed up, please login for access to CMS</p>
-            <form id="login-form" name="login-input" action="/cms.html" method="POST">
+          <h2 class="display-4">CMS Add Product Card</h2>
+          <p class="font-weight-bold">For adding new product information cards to the site</p>
+            <form id="add-form" name="card-input" action="/cms.html" method="POST">
                 <div class="form-group">
-                  <label for="InputEmail1">Email address or email address</label>
-                  <input type="text" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-                  <small id="emailHelp" class="form-text text-muted">Please enter email address used during Sign up</small>
+                  <label for="InputCardImg">Image please use format 'img src='/img/name.jpg' </label>
+                  <input type="text" class="form-control" id="card_img_top" aria-describedby="imageUrl" placeholder="Enter card image" name="card_img_top">
+                  <small id="imgHelp" class="form-text text-muted">At present images need to reside in /public/img</small>
                 </div>
                 <div class="form-group">
-                  <label for="InputPassword1">Password</label>
-                  <input type="password" class="form-control" id="InputPassword1" placeholder="Password" name="password">
+                  <label for="InputCardTitle">Title on Card</label>
+                  <input type="text" class="form-control" id="InputTitle" placeholder="Title" name="card_title">
+                </div>
+
+                <div class="form-group">
+                  <label for="InputCardTitle">TText block within Card</label>
+                  <input type="text" class="form-control" id="InputText" placeholder="Text" name="card_text">
+                </div>
+
+                <div class="form-group">
+                  <label for="InputCardTitle">list item, facts in brief 1</label>
+                  <input type="text" class="form-control" id="InputListG1" placeholder="Title" name="list_group1">
+                </div>
+
+                <div class="form-group">
+                  <label for="InputCardTitle">list item, facts in brief 2 (optional)</label>
+                  <input type="text" class="form-control" id="InputListG2" placeholder="Title" name="list_group2">
+                </div>
+
+                <div class="form-group">
+                  <label for="InputCardTitle">list item, facts in brief 3 (optional)</label>
+                  <input type="text" class="form-control" id="InputListG1" placeholder="Title" name="list_group3">
                 </div>
                 
-                <button type="submit" class="btn btn-primary" id="submit-login">Submit</button>
+                <button type="submit" class="btn btn-primary" id="submit-card">Submit</button>
               </form>
         </div>
       </div>

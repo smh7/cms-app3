@@ -54,42 +54,42 @@ define({ "api": [
             "type": "String",
             "optional": true,
             "field": "card_img_top",
-            "description": ""
+            "description": "<p>At present format=  img src='http://localhost:8080/img/maine.jpg'</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "card_title",
-            "description": ""
+            "description": "<p>This is the card title</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "card_text",
-            "description": ""
+            "description": "<p>This is the larger section of text withint the card</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "list_group1",
-            "description": ""
+            "description": "<p>This is the first list group item beneath the card-text</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "list_group2",
-            "description": ""
+            "description": "<p>This is the 2nd, might not be needed</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "list_group3",
-            "description": ""
+            "description": "<p>This is the 3rd</p>"
           }
         ]
       }
@@ -97,6 +97,37 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "controllers/card.controller.js",
     "groupTitle": "Card"
+  },
+  {
+    "type": "get",
+    "url": "/cards",
+    "title": "",
+    "group": "Cards",
+    "name": "GetCards",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "Card",
+            "description": "<p>List of Product Cards</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://localhost:8080/cards",
+        "type": "curl"
+      }
+    ],
+    "description": "<p>Any User Can Return a View of all Product Cards</p>",
+    "version": "0.0.0",
+    "filename": "controllers/card.controller.js",
+    "groupTitle": "Cards"
   },
   {
     "type": "post",
