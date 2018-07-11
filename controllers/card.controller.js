@@ -37,7 +37,7 @@ module.exports = {
 
   /**
    * @api {get} /cards
-   * @apiGroup Cards
+   * @apiGroup Card
    *  @apiName GetCards
    *  @apiSuccess {Object[]} Card List of Product Cards
    *  @apiExample {curl} Example usage:
@@ -52,6 +52,103 @@ module.exports = {
     } catch (error) {
       ctx.throw(500, err);
     }
-  }
+  },
 
+/**
+     *@api {get} /card/:id
+     *@apiGroup Card
+     * @apiName GetCard
+     * @apiSuccess {Object} Card A single Card by Id
+     * @apiExample {curl} Example usage:
+     * curl -i http://localhost:8080/card/:id
+     * @apiDescription LoggedIn user can get single card by id
+     * @apiHeader {String} Authorization  JWT Authorization header
+     * @apiHeaderExample {json} Request Authorization Header
+     * {
+     *  "authorization" : "jkahdkjashdk324324342"
+     * }
+     */
+    async findOne(ctx){
+      try {
+
+          const card = await ctx.db.Card.findOne({
+              id: ctx.params.id
+          });
+          if (!card) {
+              ctx.throw(404, 'card id is invalid');
+          }
+          ctx.body = card;
+      }
+      catch (err) {
+          ctx.throw(500, err)
+      }
+  },
+
+  /**
+   *@api {delete} /card/:id
+   *@apiGroup Cards
+   * @apiName deleteCard
+   * @apiSuccess {Object} Card is deleted successfully
+   * @apiExample {curl} Example usage:
+   * curl -i http://localhost:8080/card/:id
+   * @apiDescription LoggedIn user can delete the card by id
+   * @apiHeader {String} Authorization  JWT Authorization header
+   * @apiHeaderExample {json} Request Authorization Header
+   * {
+   *  "authorization" : "jkahdkjashdk324324342"
+   * }
+   */
+  async destroy(ctx){
+      try {
+
+          const results = await ctx.db.Card.destroy({
+              where: {
+                  id: ctx.params.id
+              }
+          });
+
+          results === 0 ? ctx.throw(500, 'invalid id provided') : ctx.body = `card is deleted with id ${ctx.params.id}`;
+
+      }
+      catch (err) {
+          ctx.throw(500, err)
+      }
+  },
+  /**
+   *@api {put} /card/:id
+   *@apiGroup Card
+   * @apiName UpdateCard
+   * @apiSuccess {Object} Card is updated successfully
+   * @apiExample {curl} Example usage:
+   * curl -i http://localhost:8080/card/:id
+   * @apiDescription LoggedIn user can get single card by id
+   * @apiHeader {String} Authorization  JWT Authorization header
+   * @apiHeaderExample {json} Request Authorization Header
+   * {
+   *  "authorization" : "jkahdkjashdk324324342"
+   * }
+   */
+  async update(ctx){
+      try {
+
+          const results = await ctx.db.Card.update({
+            card_img_top: ctx.request.body.card_img_top,
+            card_title: ctx.request.body.card_title,
+            card_text: ctx.request.body.card_text,
+            list_group1: ctx.request.body.list_group1,
+            list_group2: ctx.request.body.list_group2,
+            list_group3: ctx.request.body.list_group3
+          }, {
+              where: {
+                  id: ctx.params.id
+              }
+          });
+
+          results === 0 ? ctx.throw(500, 'invalid id provided') : ctx.body = `card is updated with id ${ctx.params.id}`;
+
+      }
+      catch (err) {
+          ctx.throw(500, err)
+      }
+  }
 };
